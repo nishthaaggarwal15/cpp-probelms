@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    
+    int n; 
+    cout<< "enter length";
+    cin >> n;
+    int arr[n];
+    cout<< "enter values of array";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int res = 0;
+    int prev_sop = 0;
+
+    for (int i = 0; i < n; i++) {
+        prev_sop = arr[i]*(1+prev_sop);
+        res += prev_sop;
+    }
+
+    cout << res << endl;
+    return 0;
+}
