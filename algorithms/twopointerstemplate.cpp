@@ -21,7 +21,7 @@ int main()
 
     while (tail < n)
     {
-        while (// there is a next element to eat && we can eat)
+        while () // there is a next element to eat && we can eat)
         {
             head++;
             
