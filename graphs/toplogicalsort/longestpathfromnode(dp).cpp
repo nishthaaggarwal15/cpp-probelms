@@ -36,4 +36,5 @@ for(int i =1; i<=n;i++){
     ans = max(ans,rec(i));
 }
 cout<<ans<<endl;
+return 0;
 }
