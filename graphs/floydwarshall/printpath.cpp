@@ -5,33 +5,22 @@ using namespace std;
 int n,m;
 vector<vector<int>>parent(n+1,vector<int>(n+1,0));
 vector<vector<ll>>dist(n+1,vector<ll>(n+1,INF));
-void floydwarshal(){
+void floydforpath(){
     for(int k=1; k<=n; k++){
         for(int i=1; i<=n; i++){
             for(int j =1; j<=n ; j++){
-          if(dist[i][k]<INF && dist[k][j]<INF){
-            dist[i][j]= min(dist[i][j], dist[i][k]+dist[k][j]);
+          if(dist[i][k]>dist[i][k]+dist[k][j]){
+            dist[i][j]= dist[i][k]+dist[k][j];
+            parent[i][j]= parent[k][j];
           }
             }
         }
     }
 
 }
-
-bool checknegcycle(){
-    for(int i =1; i<=n; i++){
-        if(dist[i][i]<0) return true;
-    }
-    return false;
-}
-
-void printdist(){
-    for(int i =1; i<=n; i++){
-        for(int j=1; j<=m; j++){
-        if(dist[i][j] == INF) cout << "INF ";
-            else cout << dist[i][j] << " "; 
-        }
-    }
+void printpath(int i, int j){
+    if(i!=j)printpath(i,parent[i][j]);
+    cout<<j<<"\n";
 }
 int main(){
     cin>>n>>m;
