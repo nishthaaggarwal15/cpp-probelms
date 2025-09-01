@@ -38,7 +38,7 @@ while(!q.empty()){
     for(state v: neighbours(node)){
         int edge_w=0;
         if(arr[v.F][v.S]=='#') edge_w=1;
-        if( dis[v.F][v.S]= dis[node.F][node.S]+edge_w){
+        if( dis[v.F][v.S]> dis[node.F][node.S]+edge_w){
            dis[v.F][v.S]= dis[node.F][node.S]+edge_w;
        //0-1bfs
        if(edge_w==0) q.push_front(v);
