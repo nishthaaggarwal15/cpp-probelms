@@ -10,6 +10,8 @@ for(auto v: g[node]){
     }
 }
 }
+//solve
+
 void solve(){
     int n;
     cin>>n;
