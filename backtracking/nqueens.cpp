@@ -15,8 +15,8 @@ void printer(){
 }
 bool check(int row, int col){
     
-    for(int prow =0; prow<row; prow++ ){
-       int pcol = queens[prow];
+    for(int prow =0; prow<row; prow++ ){// rows of previous queens before this queen
+       int pcol = queens[prow];// col of prevous queens before this queen
        if(pcol==col || abs(row-prow)==abs(pcol-col)){
         return false;
        }
