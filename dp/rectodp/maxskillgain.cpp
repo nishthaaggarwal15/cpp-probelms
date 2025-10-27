@@ -5,6 +5,7 @@ int s[100100];
 int taken[100100];
 int x,k;
 int n;
+
 bool check(int level){
     int timetakentillnow =0;
     int itemtaken =0;
@@ -16,7 +17,7 @@ itemtaken+= 1;
     }
     timetakentillnow+= t[level];
     itemtaken++;
-    if(timetakentillnow<=x && itemtaken<=x){
+    if(timetakentillnow<=x && itemtaken<=k){
         return true;
     }
     return false;

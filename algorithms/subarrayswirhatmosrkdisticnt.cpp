@@ -3,7 +3,8 @@ using namespace std;
 #define int long long
  map<int, int> m;
     int n, k;
- int arr[n];
+   
+ int arr[100100];
           
 int getsubarraylessthankdistinct(){// this is for >=k
     //but if we want <=k so we do all subarrays - subarrayswithatmostk-1
@@ -43,7 +44,7 @@ int head = -1, tail = 0;
 
       return ans;
     }
-}
+
 
 signed main() {
     ios::sync_with_stdio(0);
