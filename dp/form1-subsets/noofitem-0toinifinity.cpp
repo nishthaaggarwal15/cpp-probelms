@@ -6,13 +6,19 @@ int v[1001];
 int dp[1001][1001];
 int wleft;
 int rec(int level, int wleft){
-if(level<n)return 0;
-if(dp[level][wleft]!=-1){
+if(level<n)return 0;//base case
+if(dp[level][wleft]!=-1){//cache check
 return dp[level][wleft];
 }
+//transtition way1 
+// int ans =0;
+// for(int numoftimes =0; numoftimes<=wleft/w[level];numoftimes++){
+// ans = max(ans, rec(level+1,wleft-numoftimes*w[level])+v[level]);
+// }
+// transition way 2
 int ans = rec(level+1,wleft);
-if(wleft>= w[level]){
-ans = max(ans, v[level]+rec(level+1,wleft-w[level]));
+if(w[level]<=wleft){
+    ans = max(ans, rec(level,wleft-w[level])+v[level]);
 }
 dp[level][wleft]=ans;
 return ans;
