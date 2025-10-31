@@ -4,16 +4,16 @@ long long dp[1001][1001];
 string s,t;
 
 long long rec(int i, int j){
-  if (j == t.size()) return 1; 
+  if (j == t.size()) return 1; // if t is completed we have found a new subsequenece so return 1 for count
         if (i == s.size()) return 0;
     if(dp[i][j]!=-1){
         return dp[i][j];
     }
     long long ans =0;
-    if(s[i]==t[j]){
+    if(s[i]==t[j]){// if both are equal add the count 
         ans += rec(i+1,j+1);
     }
-ans+= rec(i+1,j);
+ans+= rec(i+1,j);// if not traverse on s
     dp[i][j]= ans;
     return ans;
 }
