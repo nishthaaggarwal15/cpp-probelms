@@ -5,7 +5,7 @@ int n;
 int dp[1001][1001];
 int rec(int l, int r){
     //pruning
-     if(l<r)return;
+     if(l>r)return;
     //base case
     if(l==r) return 0;// if one matrix cost will be 0
     // cache check
