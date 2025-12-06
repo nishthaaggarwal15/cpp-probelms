@@ -25,7 +25,7 @@ if(dp2[i]!=-1){
 // tranaition
 int ans =1e9;
 for(int j = i-1 ; j>i; i--){
-    if(rec1(j+1,i)){
+    if(rec1(j+1,i)){ 
  ans = min(ans,rec2(j)+1);
     }
 
