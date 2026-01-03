@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> p;
+
+void manachar(string s){                
+    int n = s.length();
+    p.assign(n, 0);                   
+  int l = 0, r = -1;                   
+    for(int i = 0; i < n; i++){
+        int mirror = l + r - i;          
+      if(i <= r)
+            p[i] = min(r - i + 1, p[mirror]);
+        else
+            p[i] = 1;
+
+ while(i - p[i] >= 0 && i + p[i] < n &&
+              s[i - p[i]] == s[i + p[i]]){
+            p[i]++;
+        }
+
+        if(i + p[i] - 1 > r){
+            l = i - p[i] + 1;
+            r = i + p[i] - 1;
+        }
+    }
+}
+
+void build(string s){
+    string t = "#";                      
+    for(auto i : s){
+        t += i;
+        t += "#";                       
+    }
+    manachar(t);
+}
+
+int getLongest(int cen, int odd){
+    int pos = 2 * cen + 1 + (!odd);     
+    return p[pos] - 1;                 
+}
+
+bool checkPalindrome(int l, int r){
+    int len = r - l + 1;
+    int cen = (l + r) / 2;
+    return getLongest(cen, (l % 2) == (r % 2)) >= len;
+}
+
+int main(){
+    return 0;
+}
