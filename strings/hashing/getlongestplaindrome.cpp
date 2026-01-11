@@ -60,6 +60,28 @@ bool ispalindrome(int l, int r){
     return gethash(l,r)== getrevhash(l,r);
 }
 };
+int pal_count(string s){
+    int n = s.length();
+    hasher h;
+    h.init(s, 39, 100000009);
+    int finalans=0;
+    for(int i =0;i<n;i++){
+        int low =1;
+        int high =min(i-0+1,n-i);
+        int ans =0;
+        while(low<=high){
+            int mid = (low+high)/2;
+            if(h.getfHash(i-mid+1,i)== h.getrevHash(i,i+mid-1)){
+                ans = mid;
+                low = mid+1;
+            } else{
+                high = mid-1;
+            }
+        }
+        finalans+= ans;
+    }
+
+}
 void solve(){
     string s;
     cin>>s;

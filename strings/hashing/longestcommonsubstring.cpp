@@ -41,8 +41,27 @@ for(int i =0; i+x-1<s1.size(); i++){
 st.insert(h1.getfhash(i, i+x-1));
 }
 for(int i =0; i+x-1<s2.size(); i++){
-    st.count(h2.getfhash(i,i+x-1));
+   if( st.count(h2.getfhash(i,i+x-1)))
+    return true;
 }
+return false;
+}
+string getSubstring(string s1, string s2, int x){
+
+hasher h1,h2;
+h1.init(s1,31,1000000007);
+h2.init(s2,31,1000000007);
+unordered_map<int,int>mp;
+for(int i =0; i+x-1<s1.size(); i++){
+mp[(h1.getfhash(i, i+x-1))]=i;
+}
+for(int i =0; i+x-1<s2.size(); i++){
+   int h = h2.getfhash(i, i+x-1);
+   if(mp.count(h)){
+    return s1.substr(mp[h],i);
+   }
+}
+return " ";
 }
 int bs (string s1, string s2){
     int lo =0; int high = min(s1.length(), s2.length());
