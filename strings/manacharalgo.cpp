@@ -1,6 +1,14 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
+/*
+Manacher’s algorithm is a smart way to find the longest palindrome in a string very fast.
+ First, it changes the string by putting special characters (like #) between letters so that it treats even-length and odd-length palindromes the same way.
+  Then, it goes through each position in this new string and uses information from a palindrome it already found to skip checking some parts again.
+   It keeps track of the rightmost palindrome it has found and uses its mirror positions to guess how far the palindrome at the current position might go.
+    Only if needed, it tries to expand the palindrome by comparing characters on both sides.
+     Because of this clever trick, it doesn’t check the same things again and again, so the whole process runs very quickly—in linear time.
+*/
 vector<int> p;
 
 void manachar(string s){                
