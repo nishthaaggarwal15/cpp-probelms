@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-struct{
+struct data {
     //mean and variance
     int sum =0;
     int sumsq=0;
