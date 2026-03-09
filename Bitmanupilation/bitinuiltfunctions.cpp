@@ -10,7 +10,6 @@ void binary(ll x){
     for(int i=63;i>=0;i--) cout<<((u>>i)&1);
     cout<<endl;
 }
-
 int msb(ll x){
     if(x==0) return -1;
     ull u=(ull)x;
